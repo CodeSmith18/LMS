@@ -1,0 +1,65 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime files / PIDs
+pids/
+*.pid
+*.pid.lock
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+.tmp/
+.cache/
+
+# Tests / coverage
+coverage/
+jest-cache/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Local development DB dumps / data
+data/
+dump/
+*.archive
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.sublime-*
+*.code-workspace
+
+# Package manager lock files (OPTIONAL)
+# Uncomment if you *don't* want to track lockfile
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Docker
+docker-compose.override.yml
+.env.docker
+
+# Misc
+*.tgz
+*.zip
+
+# dotenv debug (newer dotenv versions may output helper files)
+dotenv-debug.log
