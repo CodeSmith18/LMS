@@ -3,7 +3,8 @@ import http from 'http';
 import dotenv from "dotenv";
 import connectDB from "./config/db.js"
 import cors from 'cors';
-import cookieParser from 'cookie-parser';
+import userRouter from './routes/userRoutes.js';
+
 dotenv.config();
 
 
@@ -18,6 +19,8 @@ const server = http.createServer(app);
 
 
 
+
+
 connectDB()
 .then((result)=>{
     console.log(result);
@@ -28,4 +31,7 @@ connectDB()
 .catch((err)=>{
     console.error(err)
 })
+
+
+app.use("/api/users",userRouter)
 
