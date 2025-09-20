@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 
-export default LeadSchema = new mongoose.Schema({
+const LeadSchema = new mongoose.Schema({
     first_name: {
         type: String,
         required: true,
@@ -44,3 +44,6 @@ export default LeadSchema = new mongoose.Schema({
     last_activity_at: { type: Date, default: null },
     is_qualified: { type: Boolean, default: false },
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
+
+const Lead = mongoose.model('Lead',LeadSchema);
+export default Lead;
