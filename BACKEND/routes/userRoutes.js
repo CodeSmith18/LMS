@@ -6,9 +6,10 @@ import {
     login,
     refreshToken,
     logout,
-    getProfile
-} from "../controllers/userControllers"; 
-import authMiddleWare from "../middlewares/authMiddleWare";
+    getProfile,
+    auth
+} from "../controllers/userControllers.js"; 
+import authMiddleWare from "../middlewares/authMiddleWare.js";
 
 const userRouter = express.Router();
 
@@ -20,6 +21,7 @@ userRouter.post("/signup", signUp);
 userRouter.post("/login", login);
 userRouter.post("/refresh", refreshToken);
 userRouter.post("/logout", logout);
+userRouter.post("/auth",auth)
 userRouter.get("/me", authMiddleWare, getProfile);
 
 export default userRouter;

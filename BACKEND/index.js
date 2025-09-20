@@ -4,21 +4,14 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js"
 import cors from 'cors';
 import userRouter from './routes/userRoutes.js';
-
+import leadRouter from './routes/leadRoutes.js';
 dotenv.config();
 
-
-
 const port = process.env.PORT || 5000;
-
 const app = express();
 app.use(express.json());
 app.use(cors());
 const server = http.createServer(app);
-
-
-
-
 
 
 connectDB()
@@ -33,5 +26,6 @@ connectDB()
 })
 
 
-app.use("/api/users",userRouter)
+app.use("/api/users",userRouter);
+app.use("/api/leads",leadRouter);
 

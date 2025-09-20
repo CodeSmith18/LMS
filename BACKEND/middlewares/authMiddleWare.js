@@ -12,7 +12,7 @@ const authMiddleWare = (req,res,next) =>{
        return next();
     }
     catch(err){
-        res.status(401).json({message:"Invalid token"});
+        res.status(401).json({message:"Unauthenticated request"});
     }
 }
 

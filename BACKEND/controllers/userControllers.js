@@ -1,4 +1,4 @@
-import User from "../models/userModel";
+import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -141,3 +141,25 @@ export const getProfile = async (req, res) => {
     return res.status(500).json({ message: "Server error" });
   }
 };
+
+
+export const auth = async (req, res) => {
+
+    const { accessToken} = req.cookies || {};
+    if (accessToken) {
+      try {
+        const payload = jwt.verify(accessToken, ACCESS_SECRET);
+        const user = await User.findById(payload.id).select("-password -__v -refreshToken");
+        if (!user) return res.status(401).json({ error: "uNS" });
+        return res.json({ user: { id: user._id, email: user.email, username: user.username } });
+      } catch (err) {
+         res.status(401).json({error:"Unauthoriszed"})
+      }
+    }
+    else{
+        res.status(401).json({error:"Unauthoriszed"})
+    }
+  }
+
+
+
