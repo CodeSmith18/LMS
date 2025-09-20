@@ -3,7 +3,7 @@ import http from 'http';
 import dotenv from "dotenv";
 import connectDB from "./config/db.js"
 import cors from 'cors';
-
+import cookieParser from 'cookie-parser';
 dotenv.config();
 
 
@@ -14,6 +14,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 const server = http.createServer(app);
+
+
 
 
 connectDB()
