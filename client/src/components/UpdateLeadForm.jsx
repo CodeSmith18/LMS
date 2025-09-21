@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { updateLeadApi } from "../lib/api";
+import "./Update.css";
 
 export default function UpdateLeadForm({ lead, onDone, onCancel }) {
   const [form, setForm] = useState({ ...lead });
@@ -26,30 +27,54 @@ export default function UpdateLeadForm({ lead, onDone, onCancel }) {
   };
 
   return (
-    <div className="update-form">
-      <h3>Update Lead</h3>
-      <form onSubmit={handleSubmit} className="form-grid">
+    <div className="updatelead-container">
+      <h3 className="updatelead-title">Update Lead</h3>
+      <form onSubmit={handleSubmit} className="updatelead-grid">
         <div>
-          <label>First name</label>
-          <input name="first_name" value={form.first_name} onChange={handleChange} />
+          <label>First Name</label>
+          <input
+            name="first_name"
+            value={form.first_name}
+            onChange={handleChange}
+            className="updatelead-input"
+          />
         </div>
         <div>
-          <label>Last name</label>
-          <input name="last_name" value={form.last_name} onChange={handleChange} />
+          <label>Last Name</label>
+          <input
+            name="last_name"
+            value={form.last_name}
+            onChange={handleChange}
+            className="updatelead-input"
+          />
         </div>
         <div>
           <label>Email</label>
-          <input name="email" type="email" value={form.email} onChange={handleChange} />
+          <input
+            name="email"
+            type="email"
+            value={form.email}
+            onChange={handleChange}
+            className="updatelead-input"
+          />
         </div>
-
         <div>
           <label>Phone</label>
-          <input name="phone" value={form.phone} onChange={handleChange} />
+          <input
+            name="phone"
+            value={form.phone}
+            onChange={handleChange}
+            className="updatelead-input"
+          />
         </div>
-
         <div>
           <label>Status</label>
-          <select name="status" value={form.status} onChange={handleChange}>
+          <select
+            name="status"
+            value={form.status}
+            onChange={handleChange}
+            className="updatelead-input"
+          >
             <option value="new">new</option>
             <option value="contacted">contacted</option>
             <option value="qualified">qualified</option>
@@ -58,12 +83,20 @@ export default function UpdateLeadForm({ lead, onDone, onCancel }) {
           </select>
         </div>
 
-        <div className="form-actions" style={{ gridColumn: "1 / -1" }}>
-          <button type="button" onClick={onCancel}>Cancel</button>
-          <button type="submit" className="primary-btn" disabled={loading}>{loading ? "Saving..." : "Save"}</button>
+        <div className="updatelead-actions">
+          <button type="button" onClick={onCancel} className="updatelead-cancel">
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="updatelead-save"
+            disabled={loading}
+          >
+            {loading ? "Saving..." : "Save"}
+          </button>
         </div>
 
-        {error && <div className="form-error">{error}</div>}
+        {error && <div className="updatelead-error">{error}</div>}
       </form>
     </div>
   );

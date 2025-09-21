@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import "./ls.css"
+import "./login.css";
+
 function Login() {
     const [formData, setFormData] = useState({
         email: "",
         password: ""
-    })
+    });
 
     const navigate = useNavigate();
 
@@ -15,58 +16,63 @@ function Login() {
             ...formData,
             [e.target.name]: e.target.value
         });
-    }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
             const res = await fetch("/api/users/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    username: formData.username,
                     email: formData.email,
                     password: formData.password,
                 })
-            })
+            });
+
             const data = await res.json();
             console.log(data);
+
             if (res.ok) {
-                toast.success("✅ Account created successfully!");
-                navigate("/")
+                toast.success("✅ Logged in successfully!");
+                navigate("/Lead");
             } else {
-                toast.error(data.error || "Signup failed");
+                toast.error(data.error || "Login failed");
             }
+        } catch (err) {
+            console.error(err);
+            toast.error("Something went wrong");
         }
-        catch (err) {
-            console.log(err);
-        }
-    }
+    };
+
     return (
-        <>
-            <form onSubmit={handleSubmit}>
+        <div className="login-container-rr">
+            <form onSubmit={handleSubmit} className="login-form-rr">
+                <h2>Login.</h2>
+                <h3 class="signup-text">
+                    Don't have an account?
+                    <a href="/signin">Sign up</a>
+                </h3>
+
                 <input
-                    type="text"
+                    type="email"
                     name="email"
                     placeholder="Email"
                     value={formData.email}
-                    required
-                    onChange={handleFormChange} />
-
-                <input type="text"
-                    name="password"
-                    placeholder="Password"
                     onChange={handleFormChange}
                     required
-                    value={formData.password} />
-
-                <button
-                    type="submit">
-                    Login
-                </button>
+                />
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    value={formData.password}
+                    onChange={handleFormChange}
+                    required
+                />
+                <button type="submit">Login</button>
             </form>
-        </>
+        </div>
     );
 }
 

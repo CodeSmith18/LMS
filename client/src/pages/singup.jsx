@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./ls.css";
+import "./signup.css"; // renamed to match the new unique class
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -8,7 +8,7 @@ function SignUp() {
         username: "",
         email: "",
         password: ""
-    })
+    });
 
     const navigate = useNavigate();
 
@@ -18,69 +18,60 @@ function SignUp() {
             const res = await fetch("/api/users/signup", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    username: formData.username,
-                    email: formData.email,
-                    password: formData.password,
-                }),
+                body: JSON.stringify(formData),
             });
+
             const data = await res.json();
             console.log(data);
 
             if (res.ok) {
                 toast.success("✅ Account created successfully!");
-                navigate("/login")
+                navigate("/");
             } else {
                 toast.error(data.error || "Signup failed");
             }
+        } catch (err) {
+            console.error(err);
+            toast.error("Something went wrong");
         }
-        catch (err) {
-            console.log(err);
-        }
+    };
 
-    }
-
-
-
-    const handelFormChange = (e) => {
+    const handleFormChange = (e) => {
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
         });
-    }
+    };
 
     return (
-        <div>
-            <form
-                onSubmit={handleSubmit}>
-                <h2>Sign Up</h2>
+        <div className="signup-container-rr">
+            <form onSubmit={handleSubmit} className="signup-form-rr">
+                <h2>Create Account</h2>
                 <input
                     type="text"
                     name="username"
                     placeholder="Username"
                     value={formData.username}
-                    onChange={handelFormChange}
+                    onChange={handleFormChange}
                     required
-                ></input>
+                />
                 <input
-                    type="text"
+                    type="email"
                     name="email"
                     placeholder="Email"
                     value={formData.email}
-                    onChange={handelFormChange}
+                    onChange={handleFormChange}
                     required
-                ></input>
+                />
                 <input
-                    type="text"
+                    type="password"
                     name="password"
-                    placeholder="Email"
+                    placeholder="Password"
                     value={formData.password}
-                    onChange={handelFormChange}
+                    onChange={handleFormChange}
                     required
-                ></input>
-                <button
-                    type="submit">SignUp</button>
-
+                />
+                <button type="submit">Sign Up</button>
             </form>
         </div>
     );

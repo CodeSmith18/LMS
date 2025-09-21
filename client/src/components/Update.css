@@ -1,0 +1,101 @@
+/* Update.css - unique prefix: updatelead- */
+.updatelead-container {
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.updatelead-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.updatelead-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.updatelead-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.updatelead-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+}
+
+.updatelead-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.updatelead-cancel {
+  background-color: #9ca3af;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.updatelead-cancel:hover {
+  background-color: #6b7280;
+}
+
+.updatelead-save {
+  background-color: #2563eb;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.updatelead-save:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+}
+
+.updatelead-save:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+.updatelead-error {
+  color: #dc2626;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .updatelead-container {
+    padding: 16px;
+  }
+
+  .updatelead-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .updatelead-cancel,
+  .updatelead-save {
+    width: 100%;
+  }
+}

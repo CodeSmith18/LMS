@@ -1,10 +1,10 @@
 import React, {useEffect,useState} from 'react';
-import {Navigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const checkAuth = async () => {
   
-  let res = await fetch("/api/users/me", { method: "GET", credentials: "include" });
+  let res = await fetch("/api/users/auth", { method: "GET", credentials: "include" });
   if (res.status === 200) return true;
 
   if (res.status === 401) {
@@ -22,6 +22,8 @@ const checkAuth = async () => {
 const ProtectedRoute = ({ children }) => {
   const [allowed, setAllowed] = useState(null); // null = checking, true/false done
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -38,7 +40,9 @@ const ProtectedRoute = ({ children }) => {
   }, []);
 
   if (allowed === null) return <div>Loading...</div>;
-  if (allowed === false) return <Navigate to="/login" replace />;
+  if (allowed === false) {
+    navigate("/login");
+  }
   return children;
 };
 

@@ -1,0 +1,74 @@
+/* LeadPage.css - unique prefix: leadpage- */
+.leadpage-container {
+  padding: 20px;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  width:100vw;
+    color: #222;
+  background-color: #fff;
+}
+
+.leadpage-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 20px;
+}
+
+.leadpage-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.leadpage-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.leadpage-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.leadpage-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.leadpage-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .leadpage-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .leadpage-title {
+    font-size: 1.5rem;
+  }
+
+  .leadpage-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,95 @@
+/* Unique class names for the login form */
+.login-container-rr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  padding: 20px;
+  width:100vw;
+}
+
+.login-form-rr {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-form-rr h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+.login-form-rr input {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+.signup-text {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-text a {
+  color: #007bff;          /* Blue link */
+  text-decoration: none;   /* Remove underline */
+  font-weight: bold;
+  margin-left: 5px;        /* Small spacing */
+  transition: color 0.3s ease;
+}
+
+.signup-text a:hover {
+  color: #0056b3;          /* Darker blue on hover */
+  text-decoration: underline;
+}
+
+
+.login-form-rr input:focus {
+  border-color: #43cea2;
+  outline: none;
+}
+
+.login-form-rr button {
+  background: #43cea2;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.login-form-rr button:hover {
+  background: #369d85;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .login-form-rr {
+    padding: 1.5rem;
+  }
+
+  .login-form-rr h2 {
+    font-size: 1.5rem;
+  }
+
+  .login-form-rr input,
+  .login-form-rr button {
+    font-size: 0.95rem;
+  }
+}

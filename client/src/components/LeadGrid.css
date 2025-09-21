@@ -1,0 +1,161 @@
+.leads-grid-container-rr {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Top actions */
+.leads-top-actions-rr {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.primary-btn-rr,
+.secondary-btn-rr,
+.apply-btn-rr,
+.clear-btn-rr {
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  color:black
+}
+
+.primary-btn-rr {
+  background: #4a90e2;
+  color: white;
+}
+
+.secondary-btn-rr {
+  background-color: rgb(163, 37, 37);
+}
+
+.apply-btn-rr {
+  background: #4caf50;
+  color: white;
+}
+
+.date-input {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.date-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+
+.clear-btn-rr {
+  background: #f44336;
+  color: white;
+}
+
+/* Filters */
+.leads-filters-rr {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+.filters-grid-rr {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+/* Leads Grid */
+.leads-grid-rr {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.lead-card-rr {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.lead-card-header-rr {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.lead-name-rr {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.lead-company-rr {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.lead-info-rr div {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.lead-card-footer-rr {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn-rr {
+  padding: 6px 10px;
+  border-radius: 6px;
+  /* background: #eee; */
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.danger-rr {
+  background: #e53935;
+  
+}
+
+.loading-rr,
+.error-rr,
+.no-data-rr {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+/* Pagination */
+.pagination-rr {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: center;
+}
+
+/* Modal */
+.modal-content-rr {
+  padding: 20px;
+}
+
+.modal-actions-rr {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .leads-top-actions-rr {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .pagination-rr {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

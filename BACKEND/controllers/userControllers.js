@@ -61,6 +61,7 @@ export const login = async (req, res) => {
 
     return res
       .cookie("refreshToken", refreshToken, cookieOptions)
+      .cookie("accessToken",accessToken,cookieOptions)
       .status(200)
       .json({ accessToken, message: "Login Successful" });
   } catch (err) {
