@@ -5,13 +5,13 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
-    proxy: {
-      // Proxy /api requests to backend (assumes backend on port 5000)
-      "/api": {
-        target: "http://localhost:5000",
-        changeOrigin: true,
-        secure: false
-      }
-    }
+    // proxy: {
+    //   // Proxy /api requests to backend (assumes backend on port 5000)
+    //   "/api": {
+    //     target: "https://lms-2kts.onrender.com",
+    //     changeOrigin: true,
+    //     secure: false
+    //   }
+    // }
   }
 });

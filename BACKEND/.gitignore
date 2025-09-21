@@ -20,7 +20,7 @@ pids/
 .env.*.local
 
 # Build output
-dist/
+
 build/
 .tmp/
 .cache/
